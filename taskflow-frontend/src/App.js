@@ -17,7 +17,10 @@ function App() {
         <TaskForm onTaskCreated={handleTaskCreated} />
       </div>
       <div className="card p-4">
-        <TaskList refreshSignal={refresh} />
+        <TaskList 
+          refreshSignal={refresh}
+          onTaskUpdated={handleTaskCreated} // ✅ Added this line
+        />
       </div>
     </div>
   );

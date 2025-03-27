@@ -60,14 +60,16 @@ function TaskForm({ onTaskCreated }) {
       </div>
 
       <div className="mb-3">
-        <input
-          className="form-control"
-          type="text"
-          placeholder="Status (e.g. Pending, In Progress)"
-          value={status}
-          onChange={(e) => setStatus(e.target.value)}
-          required
-        />
+        <select
+        className="form-control"
+        value={status}
+        onChange={(e) => setStatus(e.target.value)}
+      >
+        <option value="">Select Status</option>
+        <option value="Pending">Pending</option>
+        <option value="In Progress">In Progress</option>
+        <option value="Done">Done</option>
+         </select>
       </div>
 
       <button type="submit" className="btn btn-primary">

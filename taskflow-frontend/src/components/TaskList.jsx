@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-function TaskList({ refreshSignal }) {
+function TaskList({ refreshSignal, onTaskUpdated }) {
   const [tasks, setTasks] = useState([]);
 
   useEffect(() => {
@@ -18,8 +18,20 @@ function TaskList({ refreshSignal }) {
   const handleDelete = (id) => {
     axios
       .delete(`http://localhost:5253/api/Tasks/${id}`)
-      .then(() => fetchTasks()) // refresh list after delete
+      .then(() => fetchTasks())
       .catch((err) => console.error("Delete failed:", err));
+  };
+
+  const handleStatusChange = (id, newStatus) => {
+    const taskToUpdate = tasks.find((t) => t.id === id);
+    if (!taskToUpdate) return;
+
+    axios
+      .put(`http://localhost:5253/api/Tasks/${id}`, { ...taskToUpdate, status: newStatus })
+      .then(() => {
+        if (onTaskUpdated) onTaskUpdated();
+      })
+      .catch((err) => console.error("Status update failed:", err));
   };
 
   return (
@@ -38,8 +50,16 @@ function TaskList({ refreshSignal }) {
                 <strong>{task.title}</strong>
                 <div className="text-muted small">{task.description}</div>
               </div>
-              <div>
-                <span className="badge bg-secondary me-2">{task.status}</span>
+              <div className="d-flex align-items-center">
+                <select
+                  className="form-select form-select-sm me-2"
+                  value={task.status}
+                  onChange={(e) => handleStatusChange(task.id, e.target.value)}
+                >
+                  <option value="Pending">Pending</option>
+                  <option value="In Progress">In Progress</option>
+                  <option value="Done">Done</option>
+                </select>
                 <button
                   onClick={() => handleDelete(task.id)}
                   className="btn btn-sm btn-danger"
