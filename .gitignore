@@ -1,8 +1,10 @@
 # Node (React frontend)
 node_modules/
+taskflow-frontend/node_modules/
 dist/
 build/
 .env
+
 
 # macOS
 .DS_Store
