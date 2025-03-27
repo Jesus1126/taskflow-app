@@ -64,7 +64,9 @@ namespace TaskFlowAPI.Controllers
         {
             var task = await _context.Tasks.FindAsync(id);
             if (task == null)
+            {
                 return NotFound();
+            }
 
             _context.Tasks.Remove(task);
             await _context.SaveChangesAsync();
