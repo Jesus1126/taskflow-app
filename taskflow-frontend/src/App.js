@@ -3,6 +3,7 @@ import TaskForm from "./components/TaskForm";
 import TaskList from "./components/TaskList";
 import CalendarView from "./components/CalendarView"; // ✅ Import CalendarView
 import 'bootstrap/dist/css/bootstrap.min.css'; // ✅ Import Bootstrap CSS
+import TodoToday from "./components/TodoToday";
 
 function App() {
   const [refresh, setRefresh] = useState(0);
@@ -28,6 +29,10 @@ function App() {
 
       <div className="card p-4 mt-4">
         <CalendarView />
+      </div>
+
+      <div className="card p-4 mt-4">
+        <TodoToday />
       </div>
     </div>
   );
