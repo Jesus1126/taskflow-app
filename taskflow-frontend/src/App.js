@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import TaskForm from "./components/TaskForm";
 import TaskList from "./components/TaskList";
-import CalendarView from "./components/CalendarView"; // ✅ Import CalendarView
-import Journal from "./components/Journal"; // ✅ Import Journal
-import 'bootstrap/dist/css/bootstrap.min.css'; // ✅ Import Bootstrap CSS
-import WeeklyStudyTracker from "./components/WeeklyStudyTracker"; // ✅ Add this
+import CalendarView from "./components/CalendarView";
+import TodoToday from "./components/TodoToday";
+import Journal from "./components/Journal";
+import WeeklyStudyTracker from "./components/WeeklyStudyTracker"; // ✅ Import it
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   const [refresh, setRefresh] = useState(0);
@@ -14,32 +15,47 @@ function App() {
   };
 
   return (
-    <div className="container mt-5">
-      <h1 className="mb-4">Task Manager</h1>
+    <div className="container mt-4">
+      <h1 className="mb-4 text-center">📋 TaskFlow Dashboard</h1>
 
-      <div className="card p-4 mb-4">
-        <TaskForm onTaskCreated={handleTaskCreated} />
+      {/* Top Row: Task Form & Journal + WeeklyStudyBar Side by Side */}
+      <div className="row mb-4">
+        <div className="col-md-6">
+          <div className="card p-3">
+            <TaskForm onTaskCreated={handleTaskCreated} />
+          </div>
+        </div>
+        <div className="col-md-6">
+          <div className="card p-3">
+            <Journal />
+            <hr />
+            <WeeklyStudyTracker goal={20} /> {/* ✅ Study bar inside same card */}
+          </div>
+        </div>
       </div>
 
-      <div className="card p-4 mb-4">
-        <TaskList 
-          refreshSignal={refresh}
-          onTaskUpdated={handleTaskCreated}
-        />
+      {/* Middle Row: Task List & To-Do List */}
+      <div className="row mb-4">
+        <div className="col-md-6">
+          <div className="card p-3">
+            <TaskList refreshSignal={refresh} onTaskUpdated={handleTaskCreated} />
+          </div>
+        </div>
+        <div className="col-md-6">
+          <div className="card p-3">
+            <TodoToday />
+          </div>
+        </div>
       </div>
 
-      <div className="card p-4 mb-4">
-        <CalendarView />
+      {/* Bottom Row: Calendar Full Width */}
+      <div className="row">
+        <div className="col-12">
+          <div className="card p-3">
+            <CalendarView />
+          </div>
+        </div>
       </div>
-
-      <div className="card p-4 mb-5">
-        <Journal />
-      </div>
-
-      <div className="card p-4 mt-4">
-        <WeeklyStudyTracker />
-      </div>
-      
     </div>
   );
 }
