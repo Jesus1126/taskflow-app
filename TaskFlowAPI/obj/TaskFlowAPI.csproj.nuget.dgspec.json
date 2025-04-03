@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/jesus/Documents/TaskFlowAPI/TaskFlowAPI.csproj": {}
+    "/Users/jesus/Projects/taskflow-app/TaskFlowAPI/TaskFlowAPI.csproj": {}
   },
   "projects": {
-    "/Users/jesus/Documents/TaskFlowAPI/TaskFlowAPI.csproj": {
+    "/Users/jesus/Projects/taskflow-app/TaskFlowAPI/TaskFlowAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/jesus/Documents/TaskFlowAPI/TaskFlowAPI.csproj",
+        "projectUniqueName": "/Users/jesus/Projects/taskflow-app/TaskFlowAPI/TaskFlowAPI.csproj",
         "projectName": "TaskFlowAPI",
-        "projectPath": "/Users/jesus/Documents/TaskFlowAPI/TaskFlowAPI.csproj",
+        "projectPath": "/Users/jesus/Projects/taskflow-app/TaskFlowAPI/TaskFlowAPI.csproj",
         "packagesPath": "/Users/jesus/.nuget/packages/",
-        "outputPath": "/Users/jesus/Documents/TaskFlowAPI/obj/",
+        "outputPath": "/Users/jesus/Projects/taskflow-app/TaskFlowAPI/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/jesus/.nuget/NuGet/NuGet.Config"

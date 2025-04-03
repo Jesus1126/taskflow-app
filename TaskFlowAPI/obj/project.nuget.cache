@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "V1n2pusr7Cw=",
+  "dgSpecHash": "beeDQEdG6T4=",
   "success": true,
-  "projectFilePath": "/Users/jesus/Documents/TaskFlowAPI/TaskFlowAPI.csproj",
+  "projectFilePath": "/Users/jesus/Projects/taskflow-app/TaskFlowAPI/TaskFlowAPI.csproj",
   "expectedPackageFiles": [
     "/Users/jesus/.nuget/packages/azure.core/1.38.0/azure.core.1.38.0.nupkg.sha512",
     "/Users/jesus/.nuget/packages/azure.identity/1.11.4/azure.identity.1.11.4.nupkg.sha512",
