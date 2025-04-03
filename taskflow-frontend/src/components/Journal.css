@@ -1,0 +1,19 @@
+.entry-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+  
+  .entry-content.expanded {
+    max-height: 150px;
+    overflow-y: auto;
+    padding-top: 0.5rem;
+  }
+  
+  .entry-content .inner {
+    padding: 0.5rem 1rem;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    color: #333;
+  }
